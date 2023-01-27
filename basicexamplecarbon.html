@@ -1,0 +1,39 @@
+// Carbon Footprint Calculator for University Students in the UK
+
+// Define variables for transportation, electricity, and food consumption
+let transportation = 0;
+let electricity = 0;
+let food = 0;
+
+// Define conversion factors for transportation
+const busConversion = 0.2; // kg CO2 per mile traveled by bus
+const trainConversion = 0.08; // kg CO2 per mile traveled by train
+const carConversion = 0.27; // kg CO2 per mile traveled by car
+
+// Define conversion factors for electricity
+const electricityConversion = 0.43; // kg CO2 per kWh of electricity used
+
+// Define conversion factors for food
+const meatConversion = 20; // kg CO2 per kg of meat consumed
+const dairyConversion = 13; // kg CO2 per kg of dairy consumed
+const vegetableConversion = 3; // kg CO2 per kg of vegetables consumed
+
+// Define function to calculate carbon footprint
+function calculateCarbonFootprint() {
+    // Get transportation data from user
+    transportation = parseFloat(prompt("Enter total miles traveled by bus: ")) * busConversion + 
+                    parseFloat(prompt("Enter total miles traveled by train: ")) * trainConversion + 
+                    parseFloat(prompt("Enter total miles traveled by car: ")) * carConversion;
+    // Get electricity data from user
+    electricity = parseFloat(prompt("Enter total kWh of electricity used: ")) * electricityConversion;
+    // Get food data from user
+    food = parseFloat(prompt("Enter total kg of meat consumed: ")) * meatConversion + 
+           parseFloat(prompt("Enter total kg of dairy consumed: ")) * dairyConversion + 
+           parseFloat(prompt("Enter total kg of vegetables consumed: ")) * vegetableConversion;
+    // Calculate and display total carbon footprint
+    let totalFootprint = transportation + electricity + food;
+    alert("Your total carbon footprint is: " + totalFootprint + " kg CO2");
+}
+
+// Call the calculateCarbonFootprint function
+calculateCarbonFootprint();

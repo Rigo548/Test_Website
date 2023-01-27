@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Footprint Calculator for University Students</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Carbon Footprint Calculator for University Students</h1>
+    <form>
+        <label>Transportation:</label>
+        <input type="number" id="transportation_miles" placeholder="Enter miles traveled">
+        <br>
+        <label>Electricity Consumption:</label>
+        <input type="number" id="electricity_consumption" placeholder="Enter electricity consumption in kWh">
+        <br>
+        <label>Food Consumption:</label>
+        <input type="number" id="food_consumption" placeholder="Enter food consumption in kg">
+        <br>
+        <label>Housing:</label>
+        <select id="housing_type">
+            <option value="dormitory">Dormitory</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+        </select>
+        <br>
+        <label>Waste:</label>
+        <input type="number" id="waste" placeholder="Enter waste generated in kg">
+        <br>
+        <label>Water Consumption:</label>
+        <input type="number" id="water_consumption" placeholder="Enter water consumption in m3">
+        <br>
+        <label>Purchases:</label>
+        <input type="number" id="purchases" placeholder="Enter cost of purchases in £">
+        <br>
+        <label>Lifestyle:</label>
+        <input type="checkbox" id="eating_out"> Eating out in restaurants and bars
+        <br><br>
+        <button onclick="calculateCarbonFootprint()">Calculate Carbon Footprint</button>
+    </form>
+    <p id="carbon_footprint"></p>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

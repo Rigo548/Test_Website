@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <form>
+      <h1>Carbon Footprint Calculator for University Students</h1>
+      <label for="transportation">Transportation (miles per year):</label>
+      <input type="number" id="transportation" name="transportation"><br><br>
+      <label for="electricity">Electricity used in accommodation (kWh per year):</label>
+      <input type="number" id="electricity" name="electricity"><br><br>
+      <label for="naturalGas">Gas used in accommodation (kWh per year):</label>
+      <input type="number" id="naturalGas" name="naturalGas"><br><br>
+      <label for="diet">What type of diet do you follow?</label>
+      <select id="diet" name="diet">
+        <option value="meat">Meat-based</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+      </select><br><br>
+      <label for="flight">Number of flight taken per year:</label>
+      <input type="number" id="flight" name="flight"><br><br>
+      <input type="button" onclick="calculateFootprint()" value="Calculate">
+    </form>
+    <p id="result"></p>
+    <script>
+      function calculateFootprint() {
+        var transportation = document.getElementById("transportation").value;
+        var electricity = document.getElementById("electricity").value;
+        var naturalGas = document.getElementById("naturalGas").value;
+        var diet = document.getElementById("diet").value;
+        var flight = document.getElementById("flight").value;
+        // Calculate the carbon footprint based on the data provided
+        var transportationEmissions = transportation * 0.43; // Assumes an average of 43 grams CO2e per mile
+        var electricityEmissions = electricity * 0.5; // Assumes an average of 0.5 pounds CO2e per kWh
+        var naturalGasEmissions = naturalGas * 0.19; // Assumes an average of 0.19 pounds CO2e per therm
+        var dietEmissions = 0;
+        var flightEmissions = 0;
+        if (diet === "meat") {
+          dietEmissions = 2000; // Assumes 2000 pounds CO2e per year for a meat-based diet
+        } else if (diet === "vegetarian") {
+          dietEmissions = 1200; // Assumes 1200 pounds CO2e per year for a vegetarian diet
+        } else if (diet === "vegan") {
+          dietEmissions = 800; // Assumes 800 pounds CO2e per year for a vegan diet
+        }
+        if (flight > 0) {
+          flightEmissions = flight * 900; // Assumes an average of 900 pounds CO2e per round trip flight
+        }
+        var totalEmissions = transportationEmissions + electricityEmissions + naturalGasEmissions + dietEmissions + flightEmissions;
+        // Display the result to the user
+        document.getElementById("result").innerHTML = "Your carbon footprint is " + + totalEmissions + " pounds CO2e per year.";
+      }
+    </script>
+  </body>
+</html>

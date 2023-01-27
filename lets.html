@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <form>
+      <h1>Survey</h1>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age"><br><br>
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label><br><br>
+      <label for="diet">What type of diet do you follow?</label>
+      <select id="diet" name="diet">
+        <option value="meat">Meat-based</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+      </select><br><br>
+      <input type="button" onclick="submitForm()" value="Submit">
+    </form>
+    <script>
+      function submitForm() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        var diet = document.getElementById("diet").value;
+        // Send the data to the server for processing
+        // You can use a library like jQuery or Axios to make the request
+        // ...
+        // Show a message to the user to confirm that the form was submitted
+        alert("Thank you for submitting the form, " + name + "!");
+      }
+    </script>
+  </body>
+</html>

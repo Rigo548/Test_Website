@@ -1,0 +1,27 @@
+function calculateCarbonFootprint() {
+    // get user input
+    var transportation = document.getElementById("transportation").value;
+    var distance = document.getElementById("distance").value;
+    var electricity = document.getElementById("electricity").value;
+  
+    // calculate carbon footprint based on transportation
+    var transportationEmissions;
+    if (transportation === "car") {
+      transportationEmissions = distance * 0.2;
+    } else if (transportation === "bus") {
+      transportationEmissions = distance * 0.1;
+    } else if (transportation === "train") {
+      transportationEmissions = distance * 0.05;
+    } else if (transportation === "bike") {
+      transportationEmissions = 0;
+    }
+  
+    // calculate carbon footprint based on electricity usage
+    var electricityEmissions = electricity * 0.2;
+  
+    // add emissions from transportation and electricity
+    var totalEmissions = transportationEmissions + electricityEmissions;
+  
+    // display total emissions
+    document.getElementById("output").innerHTML = "Your estimated carbon footprint is: " + totalEmissions + " tonnes of CO2 per year.";
+  }
